@@ -50,7 +50,7 @@ const DesignConfigurator = ({configId, imageUrl, imageDimensions}: DesignProps) 
             })
         },
         onSuccess: () => {
-            router.push(`/configure/preview?id=${configId}}`)
+            router.push(`/configure/preview?id=${configId}`)
         }
     })
 
