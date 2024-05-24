@@ -35,7 +35,7 @@ const DesignConfigurator = ({configId, imageUrl, imageDimensions}: DesignProps) 
 
     const router = useRouter()
 
-    const { mutate: saveConfig } = useMutation({
+    const { mutate: saveConfig, isPending } = useMutation({
         mutationKey: ["save-config"],
         mutationFn: async (args: SaveConfigArgs) => {
 
@@ -410,6 +410,9 @@ const DesignConfigurator = ({configId, imageUrl, imageDimensions}: DesignProps) 
                             <Button
                                 size={"sm"}
                                 className="w-full"
+                                isLoading={isPending}
+                                disabled={isPending}
+                                loadingText="Saving"
                                 onClick={() => {
                                     saveConfig({
                                         color: options.color.value,
